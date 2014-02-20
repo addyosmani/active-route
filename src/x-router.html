@@ -1,0 +1,42 @@
+<link rel="import" href="../app/bower_components/polymer/polymer.html">
+<script src="director.min.js"></script>
+
+<polymer-element name="x-router" attributes="path name route autoHash">
+  <script>
+    (function() {
+      var private_router;
+      Polymer('x-router', {
+        autoHash: false,
+        path: '',
+        name: '',
+        ready: function() {
+        	this.router.on(this.path, function(route){
+        		this.fire(this.name, Array.prototype.slice.call(arguments)); //route
+        		this.route = route;
+        	}.bind(this));
+        /*
+          this.router.on(this.path, function(route) {
+          //this.router.on(/(.*)/, function(route) {
+            this.route = route;
+          }.bind(this));
+          this.route = this.router.getRoute(0) || '';
+          */
+        },
+        routeChanged: function() {
+          console.log(this.onvisit);
+          if (this.autoHash) {
+            window.location.hash = this.route;
+          }
+          this.fire('director-route', this.route);
+        },
+        get router() {
+          if (!private_router) {
+            private_router = new Router();
+            private_router.init();
+          }
+          return private_router;
+        }
+      });
+    })();
+  </script>
+</polymer-element>

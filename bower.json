@@ -1,0 +1,28 @@
+{
+  "name": "x-router",
+  "version": "0.0.0",
+  "authors": [
+    "Addy Osmani <addyosmani@gmail.com>"
+  ],
+  "description": "A Polymer element for routing",
+  "main": "src/x-router.html",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "router",
+    "routing"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "platform": "Polymer/platform#~0.2.0",
+    "polymer": "Polymer/polymer#~0.2.0"
+  }
+}
