@@ -1,7 +1,7 @@
 {
     "name": "x-route",
     "version": "0.0.0",
-    "description": "A Polymer element for routing",
+    "description": "A Polymer element for URL routing",
     "author": "Addy Osmani",
     "license": "MIT",
     "repository": {

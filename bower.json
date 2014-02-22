@@ -4,8 +4,8 @@
   "authors": [
     "Addy Osmani <addyosmani@gmail.com>"
   ],
-  "description": "A Polymer element for routing",
-  "main": "src/x-router.html",
+  "description": "A Polymer element for URL routing",
+  "main": "src/x-route.html",
   "keywords": [
     "web-component",
     "web-components",
