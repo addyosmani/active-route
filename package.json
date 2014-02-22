@@ -1,15 +1,15 @@
 {
-    "name": "my-element",
+    "name": "x-route",
     "version": "0.0.0",
-    "description": "TODO: Write a project description",
-    "author": "TODO: Write your name",
+    "description": "A Polymer element for routing",
+    "author": "Addy Osmani",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/webcomponents/element-boilerplate"
+        "url": "https://github.com/addyosmani/x-route"
     },
     "bugs": {
-        "url": "https://github.com/webcomponents/element-boilerplate/issues"
+        "url": "https://github.com/addyosmani/x-route/issues"
     },
     "devDependencies": {
         "grunt": "~0.4.1",

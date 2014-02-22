@@ -1,0 +1,70 @@
+
+<link rel="import" href="../app/bower_components/polymer/polymer.html">
+<script src="director.min.js"></script>
+<!--
+/**
+ * @module x-route
+ */
+/**
+ * Element provides a way to offer routing
+ *
+ * x-route is an element for routing.
+ *
+ * Examples:
+ *
+ *   <x-route path="/favorites"/>
+ *   <x-route path="/about"/>
+ *   <x-route path="/books"/>
+ *   <x-route path="/books/view/:bookId"/>
+ *   <x-route path="/:foo/:bar/:bazz"/>
+ *
+ * @class x-route
+ * @blurb Routing for Polymer
+ * @author Addy Osmani
+ * @categories Routing
+ *
+ */
+-->
+<polymer-element name="x-route" attributes="route path auto">
+  <script>
+    (function() {
+      var private_router;
+      var routers;
+      Polymer('x-route', {
+        /**
+         * path: path to a supported route
+         * @type {String}
+         */
+        path: '',
+        /**
+         * auto: automatically update the window location hash
+         * @type {Boolean}
+         */
+        auto: false,
+        /**
+         * route: the current route
+         * @type {String}
+         */
+        route: '',
+        ready: function() {
+          this.router.on(this.path, function (route) {
+            this.route = route;
+          }.bind(this));
+        },
+        routeChanged: function() {
+          if (this.router.getRoute() =='' && this.auto){
+            window.location.hash = this.route;
+          }
+          this.fire('route-changed', this.router.getRoute()); 
+        },
+        get router() {
+          if (!private_router) {
+            private_router = new Router();
+            private_router.init();
+          }
+          return private_router;
+        }
+      });
+    })();
+  </script>
+</polymer-element>

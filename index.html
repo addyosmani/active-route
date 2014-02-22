@@ -2,51 +2,68 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>&lt;x-router&gt;</title>
+    <title>&lt;x-route&gt;</title>
 
     <!-- Importing Web Component's Polyfill -->
     <script src="app/bower_components/platform/platform.js"></script>
 
     <!-- Importing Custom Elements -->
-    <link rel="import" href="src/x-router.html">
+    <link rel="import" href="src/x-route.html">
+
+    <!-- Styles for the demo -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Using Custom Elements -->
-	<x-router name="favorites" path="/favorites"></x-router>
-	<x-router name="about" path="/about"></x-router>
-	<x-router name="booksId" path="/books/view/:bookId"></x-router>
-	<x-router name="foo" path="/:foo/:bar/:bazz"></x-router>
+    <h1>&lt;x-route&gt;</h1>
+    <h2>A Polymer element for routing.</h2>
 
-	<p>Play around with these in the console</p>
+    <!-- Define routes -->
+    <x-route route="/home" auto/>
+    <x-route path="/favorites"/>
+    <x-route path="/about"/>
+    <x-route path="/books"/>
+    <x-route path="/books/view/:bookId"/>
+    <x-route path="/:foo/:bar/:bazz"/>
+
+    <h2>Examples</h2>
+    <!-- Use routes -->
+    <p>Click on a route (or open in a new tab) to test &lt;x-route&gt;:</p>
+    <ul>
+        <li><a href="#/favorites">#/favorites</a></li>
+        <li><a href="#/about">#/about</a></li>
+        <li><a href="#/books">#/books</a></li>
+        <li><a href="#/books/view/25">#/books/view/25</a></li>
+        <li><a href="#/cat/hat/bat">#/cat/hat/bat</a></li>
+    </ul>
+
+    <h2>Listen for changes via the <code>route-changed</code> event</h2>
+    <pre id="console"></pre>
+
+    <h2>Usage</h2>
+    <pre>
+&lt;!-- Automatically go to a route 'home' --&gt;
+&lt;x-route route=&quot;/home&quot; auto/&gt;
+
+&lt;!-- Define paths to routes we would like to support --&gt;
+&lt;x-route path=&quot;/favorites&quot;/&gt;
+&lt;x-route path=&quot;/about&quot;/&gt;
+&lt;x-route path=&quot;/books&quot;/&gt;
+&lt;x-route path=&quot;/books/view/:bookId&quot;/&gt;
+&lt;x-route path=&quot;/:foo/:bar/:bazz&quot;/&gt;        
+    </pre>
 
     <script>
+    var myConsole = document.querySelector('#console');
+    
+    myConsole.log = function() {
+        var args = Array.prototype.slice.call(arguments).toString();
+        this.innerHTML += '\n' + args;
+    }
 
-    document.addEventListener('director-route', function(route) {
-    	console.log('catch all!', route);
-    });
-
-    document.addEventListener('favorites', function(route) {
-    	console.log('Hey favorites!', route);
-    });
-
-    document.addEventListener('about', function(route) {
-    	console.log('Hey about!', route);
-    });
-
-    document.addEventListener('booksId', function(route) {
-    	console.log('Hey books ID!', route.detail);
-    });
-
-    document.addEventListener('foo', function(route) {
-    	console.log('Hey foo bar bazz!', route.detail);
+    document.addEventListener('route-changed', function(route){
+        myConsole.log('<span class="btn">You are on: ' + route.detail + '</span>');
     });
     </script>
-       
-    <a href="#/favorites">Favorites</a>
-    <a href="#/about">About</a>
-    <a href="#/books/view/25">View Book 25</a>
-    <a href="#/cat/hat/bat">Foo bar bazz</a>
-
 </body>
 </html>
