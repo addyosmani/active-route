@@ -1,8 +1,10 @@
 # &lt;x-route&gt;
 
-A Polymer element for routing
+A Polymer element for URL routing.
 
 > Maintained by [Addy Osmani](https://github.com/addyosmani).
+
+Based on `<flatiron-director>` by the Polymer team. 
 
 ## Demo
 
@@ -13,8 +15,7 @@ A Polymer element for routing
 1. Import Web Components' polyfill:
 
     ```html
-    <script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.1.4/platform.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.1.4/polymer.js"></script>
+    <script src="platform.js"></script>
     ```
 
 2. Import Custom Element:
@@ -33,8 +34,8 @@ A Polymer element for routing
 
 HTML:
 
-```
-<!-- Automatically go to a route 'home' -->
+```html
+<!-- Automatically navigate to a route 'home' -->
 <x-route route="/home" auto/>
 
 <!-- Define paths to routes we would like to support -->
@@ -48,7 +49,7 @@ JavaScript:
 
 You can listen to a `route-changed` event for details about the route that was matched.
 
-```
+```javascript
 document.addEventListener('route-changed', function(route){
     alert(route.detail);
 });
@@ -83,7 +84,7 @@ Attribute  | Options                   | Default             | Description
 ---        | ---                       | ---                 | ---
 `path`      | *string*                  | ``               | A routing path
 `route`      | *string*                  | ``               | The current route
-`auto`      | *boolean*                  | ``               | Automatically navigate to a defined route
+`auto`      | *boolean*                  | `false`               | Automatically navigate to a defined route
 
 ## Contributing
 
