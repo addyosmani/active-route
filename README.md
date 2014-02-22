@@ -10,6 +10,14 @@ Based on `<flatiron-director>` by the Polymer team.
 
 > [Check it live](http://addyosmani.github.io/x-route).
 
+## Installation
+
+Using [Bower](http://bower.io), run:
+
+```shell
+bower install x-route
+```
+
 ## Usage
 
 1. Import Web Components' polyfill:
