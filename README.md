@@ -29,6 +29,31 @@ A Polymer element for routing
     <x-route></x-route>
     ```
 
+## Examples
+
+HTML:
+
+```
+<!-- Automatically go to a route 'home' -->
+<x-route route="/home" auto/>
+
+<!-- Define paths to routes we would like to support -->
+<x-route path="/favorites"/>
+<x-route path="/about"/>
+<x-route path="/books"/>
+<x-route path="/books/view/:bookId"/>
+<x-route path="/:foo/:bar/:bazz"/> 
+```
+JavaScript:
+
+You can listen to a `route-changed` event for details about the route that was matched.
+
+```
+document.addEventListener('route-changed', function(route){
+    alert(route.detail);
+});
+```
+
 ## Setup
 
 In order to run it locally you'll need a basic server setup.
@@ -56,9 +81,9 @@ In order to run it locally you'll need a basic server setup.
 
 Attribute  | Options                   | Default             | Description
 ---        | ---                       | ---                 | ---
-`foo`      | *string*                  | `bar`               | Lorem ipsum
-`bar`      | `abc`, `def`, `ghi`       | `foo`               | Lorem ipsum
-`height`   | *int*                     | `100`               | Lorem ipsum
+`path`      | *string*                  | ``               | A routing path
+`route`      | *string*                  | ``               | The current route
+`auto`      | *boolean*                  | ``               | Automatically navigate to a defined route
 
 ## Contributing
 
