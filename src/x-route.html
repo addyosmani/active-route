@@ -51,11 +51,19 @@
          */
         route: '',
         ready: function() {
+          // If initializing with a route to auto-navigate to
+          // ensure a change event is fired.
+          if(this.route !== ""){
+            this.fireChange();
+          }
+          // Otherwise, setup listeners for this.path
+          // and fire a change event when complete
           this.router.on(this.path, function (route) {
             this.route = route;
+            this.fireChange();
           }.bind(this));
         },
-        routeChanged: function() {
+        fireChange: function() {
           if (this.router.getRoute() =='' && this.auto){
             window.location.hash = this.route;
           }
