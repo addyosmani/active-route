@@ -1,6 +1,6 @@
 # &lt;x-route&gt;
 
-A Polymer element for URL routing.
+A [Polymer](http://www.polymer-project.org) element for URL routing.
 
 > Maintained by [Addy Osmani](https://github.com/addyosmani).
 
@@ -10,56 +10,57 @@ Based on `<flatiron-director>` by the Polymer team.
 
 > [Check it live](http://addyosmani.github.io/x-route).
 
-## Installation
+## Install
 
-Using [Bower](http://bower.io), run:
+Install with [Bower](http://bower.io):
 
-```shell
-bower install x-route
+```sh
+$ bower install --save x-route
 ```
 
 ## Usage
 
 1. Import Web Components' polyfill:
 
-    ```html
-    <script src="platform.js"></script>
-    ```
+```html
+<script src="platform.js"></script>
+```
 
 2. Import Custom Element:
 
-    ```html
-    <link rel="import" href="src/x-route.html">
-    ```
+```html
+<link rel="import" href="src/x-route.html">
+```
 
 3. Start using it!
 
-    ```html
-    <x-route></x-route>
-    ```
+```html
+<x-route></x-route>
+```
 
 ## Examples
 
-HTML:
+#### HTML
 
 ```html
 <!-- Automatically navigate to a route 'home' -->
-<x-route route="/home" auto/>
+<x-route route="/home" auto>
 
 <!-- Define paths to routes we would like to support -->
-<x-route path="/favorites"/>
-<x-route path="/about"/>
-<x-route path="/books"/>
-<x-route path="/books/view/:bookId"/>
-<x-route path="/:foo/:bar/:bazz"/> 
+<x-route path="/favorites">
+<x-route path="/about">
+<x-route path="/books">
+<x-route path="/books/view/:bookId">
+<x-route path="/:foo/:bar/:bazz"> 
 ```
-JavaScript:
+
+#### JavaScript
 
 You can listen to a `route-changed` event for details about the route that was matched.
 
 ```javascript
-document.addEventListener('route-changed', function(route){
-    alert(route.detail);
+document.addEventListener('route-changed', function (route) {
+    console.log(route.detail);
 });
 ```
 
@@ -67,11 +68,11 @@ document.addEventListener('route-changed', function(route){
 
 In order to run it locally you'll need a basic server setup.
 
-1. Install [NodeJS](http://nodejs.org/download/).
-2. Install [GruntJS](http://gruntjs.com/):
+1. Install [Node.js](http://nodejs.org/download/)
+2. Install [Grunt](http://gruntjs.com/):
 
     ```sh
-    $ [sudo] npm install -g grunt-cli
+    $ npm install --global grunt-cli
     ```
 
 3. Install local dependencies:
