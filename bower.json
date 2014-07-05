@@ -1,0 +1,19 @@
+{
+  "name": "active-route",
+  "version": "0.0.1",
+  "authors": [
+    "Anonymous <addyosmani@gmail.com>"
+  ],
+  "description": "Element providing active view routing and templating.",
+  "keywords": "route, routing, polymer, web-components",
+  "main": "active-route.html",
+  "license": "MIT",
+  "homepage": "https://github.com/addyosmani/active-route/",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.3",
+    "polymer-test-tools": "Polymer/polymer-test-tools#~0.3.3"
+  }
+}
