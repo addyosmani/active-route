@@ -2,7 +2,8 @@
   "name": "active-route",
   "version": "0.1.0",
   "authors": [
-    "Anonymous <addyosmani@gmail.com>"
+    "Herr Kaste",
+    "Addy Osmani <addyosmani@gmail.com>"
   ],
   "description": "Element providing active view routing and templating.",
   "keywords": "route, routing, polymer, web-components",
