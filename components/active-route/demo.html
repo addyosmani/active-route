@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>active-route Demo</title>
+
+  <script src="../platform/platform.js"></script>
+  <link rel="import" href="active-route.html">
+
+</head>
+<body unresolved>
+
+  <p>An example of using <code>&lt;template is="active-route"></code>:</p>
+
+  <template is="active-route" when="/(.*)"><h2>Hello view</h2></template>
+  <template is="active-route" when="/world"><h2>World view</h2></template>
+  <template is="active-route" when="/404">
+    Not there!
+    <script>console.log("Not executed!");</script>
+  </template>
+  
+  <script>
+    document.addEventListener('polymer-ready', function(){
+      history.pushState({}, '', '/world');
+    });
+  </script>
+
+</body>
+</html>

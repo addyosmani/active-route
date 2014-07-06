@@ -1,0 +1,29 @@
+{
+  "name": "active-route",
+  "authors": [
+    "Herr Kaste",
+    "Addy Osmani <addyosmani@gmail.com>"
+  ],
+  "description": "Element providing active view routing and templating.",
+  "keywords": "route, routing, polymer, web-components",
+  "main": "active-route.html",
+  "license": "MIT",
+  "homepage": "https://github.com/addyosmani/active-route/",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.3",
+    "polymer-test-tools": "Polymer/polymer-test-tools#~0.3.3"
+  },
+  "_release": "f5b132e87f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "f5b132e87f028fccb9b3a0b6d1ec9aefe90f5acb"
+  },
+  "_source": "git://github.com/addyosmani/active-route.git",
+  "_target": "master",
+  "_originalSource": "addyosmani/active-route",
+  "_direct": true
+}

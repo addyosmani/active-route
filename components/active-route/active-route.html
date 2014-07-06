@@ -1,0 +1,85 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Element providing active view routing and templating.
+
+##### Example
+
+    <template is="active-route" when="/(.*)">Hello</template>
+
+Inspired by &lt;active-view> by @herrkaste
+
+@element active-route
+@blurb Element providing active view routing and templating.
+@status alpha
+@homepage http://github.com/addyosmani/active-route
+-->
+<polymer-element name="active-route" extends="template" if="{{active}}" attributes="when active">
+  <script>
+    (function(){
+    Polymer('active-route', {
+        /**
+         * The `active` attribute specifies whether routing is active
+         * 
+         * @attribute active
+         * @type string
+         * @default true
+         */        
+        active: true,
+        /**
+         * The `path` attribute specifies the current active path
+         * 
+         * @property path
+         * @type string
+         * @default ''
+         */ 
+        path: '',
+        /**
+         * The `when` attribute specifies the routing path
+         * 
+         * @attribute when
+         * @type string
+         * @default ''
+         */ 
+        when: '',
+        created: function(){
+          Polymer.whenPolymerReady(function(){
+            this.model = this;
+          }.bind(this));
+        },
+        
+        ready: function(){
+          this.observer = new PathObserver(location, 'href');
+          this.observer.open(function(val){
+            this.path = location.pathname;
+          }.bind(this));       
+          this.path = location.pathname;
+        },
+     
+        whenChanged: function(){
+          this.expression = new RegExp('^' + escapeRegExp(this.when) + '$');
+          this.evaluate();
+        },
+        
+      /**
+       * The `pathChanged` method will fire when the path changes.
+       * 
+       * @method pathChanged
+       */
+        pathChanged: function(){
+          this.evaluate();
+          this.fire('pathChanged', { path: this.path });
+        },
+        
+        evaluate: function(){
+          this.active = !!this.path.match(this.expression);
+        }
+      });
+      
+      function escapeRegExp(str) {
+        return str.replace(/[\/]/g, "\\$&");
+      }
+      
+    })();
+  </script>
+</polymer-element>
